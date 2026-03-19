@@ -1,0 +1,31 @@
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage[backend=biber, style=apa]{biblatex}
+\usepackage[hidelinks]{hyperref}
+\usepackage{csquotes}
+\usepackage{parskip}
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{mathtools}
+
+\MakeOuterQuote{"}
+
+\setcounter{secnumdepth}{1}
+
+\addbibresource{foc1-summary.bib} 
+
+% Left align text, disable justifying
+\raggedright
+
+% Prevent overfull hbox warning up to 2pt
+\hfuzz=2pt
+
+% Support arrows
+\newcommand{\ra}{^^^^2192}
+\newcommand{\la}{^^^^2190}
+
+% Special tilde for negation
+\newcommand{\negt}{\mathord{\sim}}
+\newcommand{\cont}{\mathbf{c}}
+\newcommand{\taut}{\mathbf{t}}

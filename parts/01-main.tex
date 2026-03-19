@@ -1,0 +1,88 @@
+\section{Propositional Logic}
+\label{sec:propositional-logic}
+
+\subsection{Basic Logical Equivalences}
+
+
+\subsubsection{Commutative Law}
+\begin{itemize}
+  \item $p \wedge q \equiv q \wedge p$
+  \item $p \vee q \equiv q \vee p$
+\end{itemize}
+
+\subsubsection{Associative Law}
+\begin{itemize}
+  \item $(p \wedge q) \wedge r \equiv p \wedge (q \wedge r)$
+  \item $(p \vee q) \vee r \equiv p \vee (q \vee r)$
+\end{itemize}
+
+\subsubsection{Distributive Law}
+\begin{itemize}
+  \item $p \wedge (q \vee r) \equiv (p \wedge q) \vee (p \wedge r)$
+  \item $p \vee (q \wedge r) \equiv (p \vee q) \wedge (p \vee r)$
+\end{itemize}
+
+\subsubsection{Identity Law}
+\begin{itemize}
+  \item $p \wedge \taut \equiv p$
+  \item $p \vee \cont \equiv p$
+\end{itemize}
+
+\subsubsection{Negation Law}
+\begin{itemize}
+  \item $p \vee \negt p \equiv \taut$
+  \item $p \wedge \negt p \equiv \cont$
+\end{itemize}
+
+\subsubsection{Double Negation Law}
+\begin{itemize}
+  \item $\negt (\negt p) \equiv p$
+\end{itemize}
+
+\subsubsection{Idempotent Law}
+\begin{itemize}
+  \item $p \wedge p \equiv p$
+  \item $p \vee p \equiv p$
+\end{itemize}
+
+\subsubsection{Universal Bound Law}
+\begin{itemize}
+  \item $p \vee \taut \equiv \taut$
+  \item $p \wedge \cont \equiv \cont$
+\end{itemize}
+
+\subsubsection{De Morgan's Law}
+\begin{itemize}
+  \item $\negt (p \wedge q) \equiv \negt p \vee \negt q$
+  \item $\negt (p \vee q) \equiv \negt \wedge \negt q$
+\end{itemize}
+
+\subsubsection{Absorption Law}
+\begin{itemize}
+  \item $p \vee (p \wedge q) \equiv p$
+  \item $p \wedge (p \vee q) \equiv p$
+\end{itemize}
+
+\subsubsection{Negations of \texorpdfstring{$\taut$}{t} and \texorpdfstring{$\cont$}{c}}
+\begin{itemize}
+  \item $\negt \taut \equiv \cont$
+  \item $\negt \cont \equiv \taut$
+\end{itemize}
+
+
+\subsection{XOR}
+\begin{itemize}
+  \item $p \oplus q \equiv (p \vee q) \wedge \negt (p \wedge q)$
+  \item $p \oplus q \equiv (a \wedge \negt b) \vee (\negt a \wedge b)$
+\end{itemize}
+
+
+\subsection{Implication (If-Then)}
+\begin{itemize}
+  \item $p \rightarrow q \equiv \negt p \vee q$
+\end{itemize}
+
+\subsection{Equivalence (Biconditional If and Only if)}
+\begin{itemize}
+  \item $p \leftrightarrow q \equiv (p \rightarrow q) \wedge (q \rightarrow p)$
+\end{itemize}

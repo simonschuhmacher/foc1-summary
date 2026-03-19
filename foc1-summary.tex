@@ -1,0 +1,18 @@
+\documentclass[12pt, a4paper]{article}
+
+\input{helpers/config}
+
+\begin{document}
+
+\input{parts/00-front}
+
+\pagenumbering{Roman}
+\tableofcontents
+\newpage
+
+\begin{multicols*}{2}
+  \pagenumbering{arabic}
+  \input{parts/01-main}
+\end{multicols*}
+
+\end{document}
