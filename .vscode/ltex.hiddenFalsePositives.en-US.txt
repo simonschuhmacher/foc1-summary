@@ -1,1 +1,2 @@
 {"rule":"PRP_JJ","sentence":"^\\Q60pt Foundations of Computing I Summary 3em Simon Schuhmacher 1.5em UZH FS2026\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q\"AND of ORs\"\\E$"}

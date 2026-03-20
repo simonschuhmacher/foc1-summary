@@ -86,3 +86,29 @@
 \begin{itemize}
   \item $p \leftrightarrow q \equiv (p \rightarrow q) \wedge (q \rightarrow p)$
 \end{itemize}
+
+
+\section{Digital Logic Circuits}
+\label{sec:digital-logic-circuits}
+
+\subsection{Disjunctive Normal Form (DNF)}
+
+"OR of ANDs"
+
+\textbf{From truth table to DNF}
+\begin{enumerate}
+  \item Identify the rows whose output is $1$
+  \item AND together all variables in the same row (negate the variable when $0$)
+  \item OR together the $1$-rows
+\end{enumerate}
+
+\subsubsection{Conjunctive Normal Form (CNF)}
+
+"AND of ORs"
+
+\textbf{From truth table to CNF}
+\begin{enumerate}
+  \item Identify the rows whose output is $0$
+  \item OR together all variables in the same row (negate the variable when $1$)
+  \item AND together the $0$-rows
+\end{enumerate}
