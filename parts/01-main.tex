@@ -102,7 +102,7 @@
   \item OR together the $1$-rows
 \end{enumerate}
 
-\subsubsection{Conjunctive Normal Form (CNF)}
+\subsection{Conjunctive Normal Form (CNF)}
 
 "AND of ORs"
 
@@ -112,3 +112,151 @@
   \item OR together all variables in the same row (negate the variable when $1$)
   \item AND together the $0$-rows
 \end{enumerate}
+
+\subsection{NOR Gate}
+
+\subsubsection{NOT Using NOR}
+
+\begin{circuitikz}
+  \draw
+    node[nor port] (nor) {}
+
+    % Label the output
+    (nor.out) node[right] {$\sim a$}
+
+    % Tie both inputs together with a wire and label
+    (nor.in 1) coordinate (top)
+    (nor.in 2) coordinate (bot)
+    (top) -- (bot)
+
+    % Single input wire from the midpoint
+    ($(top)!0.5!(bot)$) -- ++(-0.5, 0) node[left] {$a$};
+\end{circuitikz}
+
+\subsubsection{OR Using NOR}
+
+\begin{circuitikz}
+  \draw
+    % First NOR gate with inputs a and b
+    node[nor port] (nor1) at (0, 0) {}
+    (nor1.in 1) node[left] {a}
+    (nor1.in 2) node[left] {b}
+
+    % Second NOR gate wired as NOT
+    node[nor port] (nor2) at (2, 0) {}
+
+    % Tie both inputs of nor2 together
+    (nor2.in 1) coordinate (nor2top)
+    (nor2.in 2) coordinate (nor2bot)
+    (nor2top) -- (nor2bot)
+
+    % Connect nor1 output to the midpoint of nor2's tied inputs
+    (nor1.out) -- ($(nor2top)!0.5!(nor2bot)$)
+
+    % Output label
+    (nor2.out) node[right] {$a \vee b$};
+\end{circuitikz}
+
+\subsubsection{AND Using NOR}
+
+\begin{circuitikz}
+  \draw
+    % Top NOR gate acting as NOT b
+    node[nor port] (nor1) at (0, 1) {}
+    (nor1.in 1) coordinate (nor1top)
+    (nor1.in 2) coordinate (nor1bot)
+    (nor1top) -- (nor1bot)
+    ($(nor1top)!0.5!(nor1bot)$) -- ++(-0.5, 0) node[left] {a}
+
+    % Bottom NOR gate acting as NOT a
+    node[nor port] (nor2) at (0, -1) {}
+    (nor2.in 1) coordinate (nor2top)
+    (nor2.in 2) coordinate (nor2bot)
+    (nor2top) -- (nor2bot)
+    ($(nor2top)!0.5!(nor2bot)$) -- ++(-0.5, 0) node[left] {b}
+
+    % Final NOR gate
+    node[nor port] (nor3) at (2, 0) {}
+
+    % Connect NOT gates to final NOR gate
+    (nor1.out) -| (nor3.in 1)
+    (nor2.out) -| (nor3.in 2)
+
+    % Output
+    (nor3.out) node[right] {$a \wedge b$};
+\end{circuitikz}
+
+
+\subsection{NAND Gate}
+
+\subsubsection{NOT Using NAND}
+
+\begin{circuitikz}
+  \draw
+    node[nand port] (nand) {}
+
+    % Label the output
+    (nand.out) node[right] {$\sim a$}
+
+    % Tie both inputs together with a wire and label
+    (nand.in 1) coordinate (top)
+    (nand.in 2) coordinate (bot)
+    (top) -- (bot)
+
+    % Single input wire from the midpoint
+    ($(top)!0.5!(bot)$) -- ++(-0.5, 0) node[left] {$a$};
+\end{circuitikz}
+
+\subsubsection{OR Using NAND}
+
+\begin{circuitikz}
+  \draw
+    % Top NAND gate acting as NOT a
+    node[nand port] (nand1) at (0, 1) {}
+    (nand1.in 1) coordinate (nand1top)
+    (nand1.in 2) coordinate (nand1bot)
+    (nand1top) -- (nand1bot)
+    ($(nand1top)!0.5!(nand1bot)$) -- ++(-0.5, 0) node[left] {a}
+
+    % Bottom NAND gate acting as NOT b
+    node[nand port] (nand2) at (0, -1) {}
+    (nand2.in 1) coordinate (nand2top)
+    (nand2.in 2) coordinate (nand2bot)
+    (nand2top) -- (nand2bot)
+    ($(nand2top)!0.5!(nand2bot)$) -- ++(-0.5, 0) node[left] {b}
+
+    % Final NAND gate
+    node[nand port] (nand3) at (2, 0) {}
+
+    % Connect NOT gates to final NAND gate
+    (nand1.out) -| (nand3.in 1)
+    (nand2.out) -| (nand3.in 2)
+
+    % Output
+    (nand3.out) node[right] {$a \vee b$};
+\end{circuitikz}
+
+
+\subsubsection{AND Using NAND}
+
+\begin{circuitikz}
+  \draw
+    % First NAND gate with inputs a and b
+    node[nand port] (nand1) at (0, 0) {}
+    (nand1.in 1) node[left] {a}
+    (nand1.in 2) node[left] {b}
+
+    % Second NAND gate wired as NOT
+    node[nand port] (nand2) at (2, 0) {}
+
+    % Tie both inputs of nand2 together
+    (nand2.in 1) coordinate (nand2top)
+    (nand2.in 2) coordinate (nand2bot)
+    (nand2top) -- (nand2bot)
+
+    % Connect nand1 output to the midpoint of nand2's tied inputs
+    (nand1.out) -- ($(nand2top)!0.5!(nand2bot)$)
+
+    % Output label
+    (nand2.out) node[right] {$a \wedge b$};
+\end{circuitikz}
