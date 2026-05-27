@@ -260,3 +260,57 @@
     % Output label
     (nand2.out) node[right] {$a \wedge b$};
 \end{circuitikz}
+
+
+\section{Induction and Recursion}
+\label{sec:induction-and-recursion}
+
+\subsection{Proof by Mathematical Induction}
+
+To prove that a property $P(n)$ is \textbf{true} for every integer $n \geq b$:
+\begin{enumerate}
+  \item \textbf{Base Case}: Show that $P(b)$ is true
+  \item \textbf{Inductive Hypothesis}: Assume $P(k)$ true for any $k \geq b$
+  \item \textbf{Inductive Step}: \textbf{Show} that $P(k) \to P(k+1)$ \textbf{is true}
+  \item \textbf{Conclusion}: If $P(b)$ is true and $P(k) \to P(k+1)$ is true, conclude that $P(n)$ is true for all $n \geq b$
+\end{enumerate}
+
+\subsection{Proof by Strong Mathematical Induction}
+\begin{itemize}
+  \item Prove recursive problems with several base cases (e.g., recurrence relations with order larger than 1)
+  \item Makes a stronger hypothesis than the principle of Mathematical Induction:
+  \begin{itemize}
+    \item The \textbf{base step} may contain proofs for \textbf{several initial values}, rather than just the base case
+    \item In the inductive step, the trust of $P(k)$ is assumed not just for an arbitrary $k \geq b$ but for \textbf{all values through $k$}
+  \end{itemize}
+\end{itemize}
+
+Let $b, b$ be two integers with $a \leq b$. To prove that a property $P(n)$ is \textbf{true} for every integer $n \geq a$:
+\begin{enumerate}
+  \item \textbf{Base Case}: Show that $P(n)$ is true for all base cases from $a$ to $b$, that is: $P(a) \wedge P(a+1) \wedge \dots \wedge P(b)$
+  \item \textbf{Inductive Hypothesis}: For any $k geq b$, assume \textbf{$P(i)$ is true for} $i = a, \dots, b, \dots, k$
+  \item \textbf{Show} that $P(k+1)$ \textbf{is true}
+  \item \textbf{Conclusion}: If 1 and 2 are verified, conclude that $P(n)$ is true for all $n \geq a$
+\end{enumerate}
+
+\subsection{Method of the Loop Invariant to Prove Algorithm Correctness}
+
+For every $n \geq 0$, let $P(n)$ be the loop invariant for a loop. \textbf{If the following four properties are true, then the loop is correct} with respect to its pre- and post-conditions:
+
+\begin{enumerate}
+  \item \textbf{Basic property}: the loop invariant is true before the loop starts, i.e., $P(0)$ is true before the loop starts. ($P(0)$ is $P(n)$ when $n = 0$). → "The loop invariant is true before the loop starts (i.e., base case is true)"
+  \item \textbf{Inductive property}: for any integer $k \geq 0$, if \textbf{both the guard $G$ and the loop invariant $P(k)$} are true before an iteration of the loop, then $P(k+1)$ is true after iteration. → "It remains true after every iteration (i.e., $P(k) \to P(k+1)$)"
+  \item \textbf{Eventual Falsity of the Guard}: after a finite number of iterations of the loop, the guard $G$ becomes false. → "The loop eventually stops (i.e., that the loop condition eventually turns false)"
+  \item \textbf{Correctness of the post-condition}: if $N$ is the number of iterations after which $G$ is false and $P(n)$ is true, then the post-condition is satisfied. → "At the point when the loop ends, you need to verify that the \textbf{loop invariant} is true"
+\end{enumerate}
+
+\section{Functions and Convolution}
+\label{sec:functions-and-convolution}
+
+\subsection{Laws of Exponents}
+\begin{itemize}
+  \item $b^{u}b^{v} = b^{u+v}$
+  \item $(b^{u})^{v} = b^{uv}$
+  \item $\frac{b^{u}}{b^{v}} = b^{u-v}$
+  \item $(bc)^{u} = b^{u}c^{u}$
+\end{itemize}
