@@ -373,6 +373,22 @@ $(f * g)(n) = (g * f)(n) \Rightarrow \sum_{k = -\infty}^{+\infty} f(k) g(n-k) = 
   \item Without flipping, convolution would not be commutative
 \end{itemize}
 
+\subsection{Dirac Function}
+Also called \textit{impulse function}. The result of the convolution of a function $f(n)$ with a Dirac is the function itself: $(f * \delta)(n) = f(n)$
+
+$\delta(n) = \begin{cases}
+  1 & n = 0 \\
+  0 & \text{elsewhere}
+\end{cases}$
+
+or
+
+$\delta(n - i) = \begin{cases}
+  1 & n = i \\
+  0 & \text{elsewhere}
+\end{cases}$
+
+Note that $f(n) * \delta(n - i)$ shifts $f(n)$ by $i$ to the right.
 
 \subsection{2D Convolution}
 Let $F$, $G$, $Y$ be \textbf{functions} defined on the infinite set $\mathbb{Z}^{2}$: $F(i,j)$, $G(i,j)$, $Y(i,j)$: $\mathbb{Z}^{2} \to \mathbb{R}$ \quad $\forall(i,j) \in \mathbb{Z}^{2}$
@@ -383,3 +399,46 @@ We define the 2D convolution between $f$ and $g$: $Y(i,j) = (F * G)(i,j) = \sum_
   \item $f$: input image
   \item $g$: kernel or filter
 \end{itemize}
+
+\subsection{Box Filters}
+
+\begin{enumerate}
+  \item Flip the filter in both dimensions ($= 180 \deg$ turn)
+  \item Slide the filter over the image, starting in the top right
+  \item Compute the sum of products (replace each pixel with a weighted sum of its neighbors)
+  \item Continue towards the right until the end of the row
+  \item Move to the next row, starting from the left again
+\end{enumerate}
+
+\textit{Note}: The sum of all elements in the filter should be $1$.
+
+\subsubsection{Example of a low-pass filter}
+$\renewcommand{\arraystretch}{1.5}\begin{array}{|c|c|c|}
+\hline
+\frac{1}{9} & \frac{1}{9} & \frac{1}{9} \\
+\hline
+\frac{1}{9} & \frac{1}{9} & \frac{1}{9} \\
+\hline
+\frac{1}{9} & \frac{1}{9} & \frac{1}{9} \\
+\hline
+\end{array}$
+
+\subsubsection{Example of a high-pass filter}
+$\renewcommand{\arraystretch}{1.5}\begin{array}{|c|c|c|}
+\hline
+0 & 1 & 0 \\
+\hline
+1 & -4 & 1 \\
+\hline
+0 & 1 & 0 \\
+\hline
+\end{array}$
+
+\subsubsection{Boundary Issues}
+\begin{itemize}
+  \item \textbf{Zero-padding} of the input image boundaries to achieve the \textbf{same size} of the input and output image.
+  \item \textbf{No zero-padding} of the input image results in a \textbf{smaller size} of the output image.
+\end{itemize}
+
+
+
