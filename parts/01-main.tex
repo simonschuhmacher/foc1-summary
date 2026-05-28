@@ -479,3 +479,85 @@ $\renewcommand{\arraystretch}{1.5}\begin{array}{|c|c|c|c|}
 & & & \\
 \hline
 \end{array}$
+
+
+\section{Relations and Cryptography}
+
+\subsection{Reflexivity, Symmetry, and Transitivity}
+Let $R$ be a relation on a set $A$
+
+\begin{enumerate}
+  \item $R$ is \textbf{reflexive} if, and only if, for all $x \in A, x \mathrel{R} x$
+  \item $R$ is \textbf{symmetric} if, and only if, for all $x, y \in A$, \textbf{\textit{if}} $x \mathrel{R} y$ then $y \mathrel{R} x$
+  \item $R$ is \textbf{transitive} if, and only if, for all $x, y, z \in A$, \textbf{\textit{if}} $x \mathrel{R} y$ and $y \mathrel{R} z$ then $x \mathrel{R} z$
+\end{enumerate}
+
+A relation that satisfies all these three properties is called an \textbf{Equivalence Relation}.
+
+\subsection{Transitive Closure}
+To make a relation transitive that does not contain certain \textbf{ordered pairs}, we need to add some ordered pairs. The relation $R^{t}$ obtained by adding the \textbf{minimum number of ordered pairs} to ensure transitivity is called the \textbf{transitive closure} of the relation.
+
+\subsection{The Relation Induced by a Partition}
+\begin{itemize}
+  \item A \textbf{partition} of a set $A$ is a collection of mutually disjoint subsets $A_{i}$ whose union is $A$
+  \item Given a partition, the relation \textbf{induced} by the partition of $A$ is a relation where all the elements within each subset $A_{i}$ of the partition are related to one another and themselves
+  \item A relation induced by a partition is always \textbf{reflexive}, \textbf{symmetric}, and \textbf{transitive}, therefore it is always an \textbf{equivalence relation}
+\end{itemize}
+
+\subsection{Equivalence Classes of an Equivalence Relation}
+\begin{itemize}
+  \item Given an equivalence relation on a certain set $A$ and any particular element $a$ in $A$, the subset $[a]$ of all elements related to $a$ under $R$ is called the \textbf{equivalence class} of $a$: $[a] = \{ x \in A \mid x \mathrel{R} a \}$
+  \item \textbf{Distinct equivalence classes} of an \textit{equivalence relation} form a \textbf{partition} of $A$
+  \item Any element of an equivalent class is called \textbf{Class Representative}
+  \item E.g., for $\{ 0, 3, 4 \}, \{ 1 \}, \{ 2 \}$, the \textbf{distinct equivalence classes} of $R$ are: $[0], [1], [2]$ (or alternatively $[3], [1], [2]$ or $[4], [1], [2]$)
+  \begin{itemize}
+    \item $[0] = [3] = [4]$ because they represent the same equivalence class
+  \end{itemize}
+\end{itemize}
+
+
+\subsection{Congruence Modulo \texorpdfstring{$n$}{n}}
+Let $a$, $b$, and $n$ be any integers and suppose $n > 1$. The following statements are all equivalent
+
+\begin{enumerate}
+  \item $n \mid (a-b)$
+  \item $a \equiv b(\mod n)$
+  \item $a = b + kn$ for some integer $k$
+  \item $a$ and $b$ have the same (nonnegative) remainder when divided by $n$
+  \item $a \mod n = b \mod n$
+\end{enumerate}
+
+\subsubsection{Properties of Congruence Modulo \texorpdfstring{$n$}{n}}
+\begin{enumerate}
+  \item $(a+b) \mod n = [(a \mod n) + (b \mod n)] \mod n$
+  \item $(a-b) \mod n = [(a \mod n) - (b \mod n)] \mod n$
+  \item $(a \cdot b) \mod n = [(a \mod n) \cdot (b \mod n)] \mod n$
+  \item $(a^{b}) \mod n = (a \mod n)^{b} \mod n$
+\end{enumerate}
+
+If you first perform addition, subtraction, multiplication of integers and then \textbf{reduce the result modulo $n$}, you obtain the same result as when the operation is performed on the reduced version of the integers.
+
+\subsection{Finding an Inverse Modulo \texorpdfstring{$n$}{n}}
+The modular inverse of an integer $a$ is an integer $x$ such that:
+
+\begin{itemize}
+  \item $a \cdot x \equiv 1 (\mod n)$
+  \item That means: $(a \cdot x) \mod n = 1$
+  \item \textit{Example:} Compute the inverse of $3$ modulo $7$: We want to determine $x$ such that $3x \equiv 1 (\mod 7)$. An inverse is $5 \equiv 1 (\mod 7)$. Other possibilities are e.g., $12$, $-2$.
+  \item The \textbf{inverse} of an integer $a$ modulo $n$ exists if and only if $a$ and $n$ are \textbf{relatively prime}.
+  \item  Two integers $a$ and $b$ are \textbf{relatively prime} if and only if $\gcd(a,b) = 1$
+\end{itemize}
+
+\subsection{Bézout's Theorem}
+If $a$ and $b$ are positive integers, then there exist integers $s$ and $t$ such that $\gcd(a,b) = \bm{s}a + \bm{t}b$
+
+\subsection{Euclidean Algorithm}
+Let $A$ and $B$ be two integers with $A > B \geq 0$, Euclid's algorithm is defined by the following recursive function:
+
+$\gcd(A, B) =
+\begin{cases}
+  A & \text{if } B = 0 \\
+  \gcd(B,\, A \bmod B) & \text{if } B > 0
+\end{cases}$
+
+$A \mod B$ denotes the \textbf{remainder} of the division of $A$ by $B$.
