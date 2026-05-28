@@ -337,6 +337,26 @@ $f(n)$, $g(n)$, $y(n)$: $\mathbb{Z} \to \mathbb{R}$ \quad $\forall n \in \mathbb
   \item $g$: kernel or filter
 \end{itemize}
 
+To convolve two functions $f$ and $g$: $f * g$
+\begin{enumerate}
+  \item Flip $g$ horizontally ($-k$)
+  \item Slide it over $f$ by adjusting $n$ and compute the sum of the products, starting at the first overlap
+  \item Continue until the last overlap
+  \item Calculate $y(n)$ for using all $n$-values used to slide $g$ over $f$
+\end{enumerate}
+
+\textit{Note}: Since the operation is commutative, sometimes it might be more convenient to compute $g * f$
+
+\subsubsection{Convolution Table Approach}
+\begin{enumerate}
+  \item Create vector representations of $f$ and $g$
+  \item Identify \textit{min index} and \textit{max index} → min and max non-zero values on the $x$-axis for $f$ and $g$
+  \item Create a table with $f$ as columns from \textit{min index} to \textit{max index} and $g$ as rows from \textit{min index} to \textit{max index}
+  \item Multiply the values
+  \item Create $y(n)$ by summing the diagonals
+  \item $n = 0$ at the diagonal where $\textit{row index} + \textit{column index} = 0$ (and equivalent for other $n$-values)
+\end{enumerate}
+
 \subsection{Properties of Convolution}
 \begin{itemize}
   \item \textbf{Commutative Law}: $f * g = g * f$
