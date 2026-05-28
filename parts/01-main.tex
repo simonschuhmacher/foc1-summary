@@ -410,9 +410,9 @@ We define the 2D convolution between $f$ and $g$: $Y(i,j) = (F * G)(i,j) = \sum_
   \item Move to the next row, starting from the left again
 \end{enumerate}
 
-\textit{Note}: The sum of all elements in the filter should be $1$.
+\textit{Note}: If we don't want to change the intensities, the sum of all elements in the filter should be $1$.
 
-\subsubsection{Example of a low-pass filter}
+\subsubsection{Example Low-Pass Filter}
 $\renewcommand{\arraystretch}{1.5}\begin{array}{|c|c|c|}
 \hline
 \frac{1}{9} & \frac{1}{9} & \frac{1}{9} \\
@@ -423,7 +423,7 @@ $\renewcommand{\arraystretch}{1.5}\begin{array}{|c|c|c|}
 \hline
 \end{array}$
 
-\subsubsection{Example of a high-pass filter}
+\subsubsection{Example High-Pass Filter}
 $\renewcommand{\arraystretch}{1.5}\begin{array}{|c|c|c|}
 \hline
 0 & 1 & 0 \\
@@ -434,11 +434,48 @@ $\renewcommand{\arraystretch}{1.5}\begin{array}{|c|c|c|}
 \hline
 \end{array}$
 
+\subsubsection{Example Horizontal (x) Axis Filter}
+$\renewcommand{\arraystretch}{1.5}\begin{array}{|c|c|c|}
+\hline
+-1 & 0 & 1 \\
+\hline
+-1 & 0 & 1 \\
+\hline
+-1 & 0 & 1 \\
+\hline
+\end{array}$
+
+\subsubsection{Example Vertical (y) Axis Filter}
+$\renewcommand{\arraystretch}{1.5}\begin{array}{|c|c|c|}
+\hline
+-1 & -1 & -1 \\
+\hline
+0 & 0 & 0 \\
+\hline
+1 & 1 & 1 \\
+\hline
+\end{array}$
+
 \subsubsection{Boundary Issues}
 \begin{itemize}
   \item \textbf{Zero-padding} of the input image boundaries to achieve the \textbf{same size} of the input and output image.
   \item \textbf{No zero-padding} of the input image results in a \textbf{smaller size} of the output image.
 \end{itemize}
 
+\subsubsection{Filters of Even Side Length}
+\begin{itemize}
+  \item If our filter has even side length, we need to determine the center out of 4 options. By convention, we chose the point at the bottom right (option $4$)
+  \item If we add zero-padding, this needs to be adapted according to where the center is chosen
+\end{itemize}
 
-
+$\renewcommand{\arraystretch}{1.5}\begin{array}{|c|c|c|c|}
+\hline
+\quad & \quad & \quad & \quad \\
+\hline
+& 1 & 2 & \\
+\hline
+& 3 & \bm{4} & \\
+\hline
+& & & \\
+\hline
+\end{array}$
