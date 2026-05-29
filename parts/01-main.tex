@@ -521,10 +521,10 @@ Let $a$, $b$, and $n$ be any integers and suppose $n > 1$. The following stateme
 
 \begin{enumerate}
   \item $n \mid (a-b)$
-  \item $a \equiv b(\mod n)$
+  \item $a \equiv b \mod{n}$
   \item $a = b + kn$ for some integer $k$
   \item $a$ and $b$ have the same (nonnegative) remainder when divided by $n$
-  \item $a \mod n = b (\mod n)$
+  \item $a \mod n = b \mod{n}$
 \end{enumerate}
 
 \subsubsection{Properties of Congruence Modulo \texorpdfstring{$n$}{n}}
@@ -542,9 +542,9 @@ If you first perform addition, subtraction, multiplication of integers and then 
 The modular inverse of an integer $a$ is an integer $x$ such that:
 
 \begin{itemize}
-  \item $a \cdot x \equiv 1 (\mod n)$
+  \item $a \cdot x \equiv 1 \pmod{n}$
   \item That means: $(a \cdot x) \mod n = 1$
-  \item \textit{Example:} Compute the inverse of $3$ modulo $7$: We want to determine $x$ such that $3x \equiv 1 (\mod 7)$. An inverse is $5 \equiv 1 (\mod 7)$. Other possibilities are e.g., $12$, $-2$.
+  \item \textit{Example:} Compute the inverse of $3$ modulo $7$: We want to determine $x$ such that $3x \equiv 1 \pmod{7}$. An inverse is $5 \equiv 1 \pmod{7}$. Other possibilities are e.g., $12$, $-2$.
   \item The \textbf{inverse} of an integer $a$ modulo $n$ exists if and only if $a$ and $n$ are \textbf{relatively prime}.
   \item  Two integers $a$ and $b$ are \textbf{relatively prime} if and only if $\gcd(a,b) = 1$
 \end{itemize}
@@ -574,8 +574,8 @@ $A \mod B$ denotes the \textbf{remainder} of the division of $A$ by $B$.
   \item This holds if:
   \begin{itemize}
     \item $S = p \cdot q$ where $p$ and $q$ are \textbf{prime numbers}
-    \item $e$ and the product $(p-1)(q-1)$ are \textbf{relatively prime}, e.g., $\gcd(e, (p-1)(q-1)) = 1$
-    \item $d$ is a \textbf{positive inverse} of $e \mod (p-1)(q-1)$, i.e., $ed \equiv 1 (\mod(p-1)(q-1))$
+    \item $e$ and the product $(p-1)(q-1)$ are \textbf{relatively prime}, i.e., $\gcd(e, (p-1)(q-1)) = 1$
+    \item $d$ is a \textbf{positive inverse} of $e \mod (p-1)(q-1)$, i.e., $ed \equiv 1 \pmod{(p-1)(q-1)}$
   \end{itemize}
   \item RSA works because it is easy to generate two large prime numbers $p$ and $q$, but it is hard to factor their product $S$ into $pq$
 \end{itemize}
