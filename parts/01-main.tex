@@ -521,19 +521,19 @@ Let $a$, $b$, and $n$ be any integers and suppose $n > 1$. The following stateme
 
 \begin{enumerate}
   \item $n \mid (a-b)$
-  \item $a \equiv b \mod{n}$
+  \item $a \equiv b \bmod{n}$
   \item $a = b + kn$ for some integer $k$
   \item $a$ and $b$ have the same (nonnegative) remainder when divided by $n$
-  \item $a \mod n = b \mod{n}$
+  \item $a \bmod n = b \bmod{n}$
 \end{enumerate}
 
 \subsubsection{Properties of Congruence Modulo \texorpdfstring{$n$}{n}}
 \begin{enumerate}
-  \item $(a+b) \mod n = [(a \mod n) + (b \mod n)] \mod n$
-  \item $(a-b) \mod n = [(a \mod n) - (b \mod n)] \mod n$
-  \item $(a \cdot b) \mod n = [(a \mod n) \cdot (b \mod n)] \mod n$
-  \item $(a^{b}) \mod n = (a \mod n)^{b} \mod n$
-  \item $-a \mod b = b - (a \mod b)$
+  \item $(a+b) \bmod n = [(a \bmod n) + (b \bmod n)] \bmod n$
+  \item $(a-b) \bmod n = [(a \bmod n) - (b \bmod n)] \bmod n$
+  \item $(a \cdot b) \bmod n = [(a \bmod n) \cdot (b \bmod n)] \bmod n$
+  \item $(a^{b}) \bmod n = (a \bmod n)^{b} \bmod n$
+  \item $-a \bmod b = b - (a \bmod b)$
 \end{enumerate}
 
 If you first perform addition, subtraction, multiplication of integers and then \textbf{reduce the result modulo $n$}, you obtain the same result as when the operation is performed on the reduced version of the integers.
@@ -543,7 +543,7 @@ The modular inverse of an integer $a$ is an integer $x$ such that:
 
 \begin{itemize}
   \item $a \cdot x \equiv 1 \pmod{n}$
-  \item That means: $(a \cdot x) \mod n = 1$
+  \item That means: $(a \cdot x) \bmod n = 1$
   \item \textit{Example:} Compute the inverse of $3$ modulo $7$: We want to determine $x$ such that $3x \equiv 1 \pmod{7}$. An inverse is $5 \equiv 1 \pmod{7}$. Other possibilities are e.g., $12$, $-2$.
   \item The \textbf{inverse} of an integer $a$ modulo $n$ exists if and only if $a$ and $n$ are \textbf{relatively prime}.
   \item  Two integers $a$ and $b$ are \textbf{relatively prime} if and only if $\gcd(a,b) = 1$
@@ -561,21 +561,21 @@ $\gcd(A, B) =
   \gcd(B,\, A \bmod B) & \text{if } B > 0
 \end{cases}$
 
-$A \mod B$ denotes the \textbf{remainder} of the division of $A$ by $B$.
+$A \bmod B$ denotes the \textbf{remainder} of the division of $A$ by $B$.
 
 
 \subsection{RSA Cryptography}
 \begin{itemize}
-  \item The plaintext $M$ is converted into a ciphertext $C$: $C = M^{e} \mod S$
+  \item The plaintext $M$ is converted into a ciphertext $C$: $C = M^{e} \bmod S$
   \item $S$ and $e$ are the \textbf{public keys}, i.e., anyone can use them to encrypt their messages
-  \item The plaintext $M$ for a ciphertext $C$ is then recovered: $M = C^{d} \mod S$
+  \item The plaintext $M$ for a ciphertext $C$ is then recovered: $M = C^{d} \bmod S$
   \item Where $d$ is the \textbf{private key}, i.e., it is secret, and only the recipient knows it
-  \item For RSA to work $M = (M^{e})^{d} \mod S$ must hold for all positive integers $M < S$
+  \item For RSA to work $M = (M^{e})^{d} \bmod S$ must hold for all positive integers $M < S$
   \item This holds if:
   \begin{itemize}
     \item $S = p \cdot q$ where $p$ and $q$ are \textbf{prime numbers}
     \item $e$ and the product $(p-1)(q-1)$ are \textbf{relatively prime}, i.e., $\gcd(e, (p-1)(q-1)) = 1$
-    \item $d$ is a \textbf{positive inverse} of $e \mod (p-1)(q-1)$, i.e., $ed \equiv 1 \pmod{(p-1)(q-1)}$
+    \item $d$ is a \textbf{positive inverse} of $e \bmod (p-1)(q-1)$, i.e., $ed \equiv 1 \pmod{(p-1)(q-1)}$
   \end{itemize}
   \item RSA works because it is easy to generate two large prime numbers $p$ and $q$, but it is hard to factor their product $S$ into $pq$
 \end{itemize}
