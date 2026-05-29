@@ -524,7 +524,7 @@ Let $a$, $b$, and $n$ be any integers and suppose $n > 1$. The following stateme
   \item $a \equiv b(\mod n)$
   \item $a = b + kn$ for some integer $k$
   \item $a$ and $b$ have the same (nonnegative) remainder when divided by $n$
-  \item $a \mod n = b \mod n$
+  \item $a \mod n = b (\mod n)$
 \end{enumerate}
 
 \subsubsection{Properties of Congruence Modulo \texorpdfstring{$n$}{n}}
@@ -533,6 +533,7 @@ Let $a$, $b$, and $n$ be any integers and suppose $n > 1$. The following stateme
   \item $(a-b) \mod n = [(a \mod n) - (b \mod n)] \mod n$
   \item $(a \cdot b) \mod n = [(a \mod n) \cdot (b \mod n)] \mod n$
   \item $(a^{b}) \mod n = (a \mod n)^{b} \mod n$
+  \item $-a \mod b = b - (a \mod b)$
 \end{enumerate}
 
 If you first perform addition, subtraction, multiplication of integers and then \textbf{reduce the result modulo $n$}, you obtain the same result as when the operation is performed on the reduced version of the integers.
@@ -561,3 +562,20 @@ $\gcd(A, B) =
 \end{cases}$
 
 $A \mod B$ denotes the \textbf{remainder} of the division of $A$ by $B$.
+
+
+\subsection{RSA Cryptography}
+\begin{itemize}
+  \item The plaintext $M$ is converted into a ciphertext $C$: $C = M^{e} \mod S$
+  \item $S$ and $e$ are the \textbf{public keys}, i.e., anyone can use them to encrypt their messages
+  \item The plaintext $M$ for a ciphertext $C$ is then recovered: $M = C^{d} \mod S$
+  \item Where $d$ is the \textbf{private key}, i.e., it is secret, and only the recipient knows it
+  \item For RSA to work $M = (M^{e})^{d} \mod S$ must hold for all positive integers $M < S$
+  \item This holds if:
+  \begin{itemize}
+    \item $S = p \cdot q$ where $p$ and $q$ are \textbf{prime numbers}
+    \item $e$ and the product $(p-1)(q-1)$ are \textbf{relatively prime}, e.g., $\gcd(e, (p-1)(q-1)) = 1$
+    \item $d$ is a \textbf{positive inverse} of $e \mod (p-1)(q-1)$, i.e., $ed \equiv 1 (\mod(p-1)(q-1))$
+  \end{itemize}
+  \item RSA works because it is easy to generate two large prime numbers $p$ and $q$, but it is hard to factor their product $S$ into $pq$
+\end{itemize}
