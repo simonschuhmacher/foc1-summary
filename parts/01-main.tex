@@ -592,7 +592,7 @@ For any non-zero integers $a$ and $b$ with $\gcd(a, b) = d$ \quad $\exists x, y$
   \item \textbf{Edges}: Connect vertices (edges must always be connected to vertices)
   \item \textbf{Directed graphs}: Graphs where edges have a direction
   \item \textbf{Complete graphs}: Graphs where all pair combinations of vertices are connected by edges, has $\frac{n(n-1)}{2}$ edges, where $n$ is the number of vertices
-  \item \textbf{Degree of a vertex $v$}: The number of segments that start or end at $v$
+  \item \textbf{Degree of a vertex $v$}: The number of segments that start or end at $v$. The degree of a \textbf{loop} is $2$.
   \item \textbf{Total degree} of a graph: The sum of the degrees of all its vertices, the \textbf{total degree of a graph is always twice the number of edges}.
   \item A graph is \textbf{connected} if it is possible to find a route from any vertex to any other vertex.
   \item A graph is \textbf{not connected} if, and only if, there are two vertices that are not connected by any route.
@@ -601,6 +601,7 @@ For any non-zero integers $a$ and $b$ with $\gcd(a, b) = d$ \quad $\exists x, y$
 
 \subsection{Routes: Definitions}
 \begin{itemize}
+  \item Route (also called \textit{walk} or \textit{travel}) in a graph is accomplished by moving from one vertex to another along a sequence of adjacent edges.
   \item \textbf{Trails}: routes that do not have a repeated edge.
   \item \textbf{Paths}: \textit{trails} that do not have repeated vertices.
   \item \textbf{Circuits}: \textit{trails} that start and end at the same vertex.
