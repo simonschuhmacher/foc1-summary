@@ -288,7 +288,7 @@ To prove that a property $P(n)$ is \textbf{true} for every integer $n \geq b$:
 Let $b, b$ be two integers with $a \leq b$. To prove that a property $P(n)$ is \textbf{true} for every integer $n \geq a$:
 \begin{enumerate}
   \item \textbf{Base Case}: Show that $P(n)$ is true for all base cases from $a$ to $b$, that is: $P(a) \wedge P(a+1) \wedge \dots \wedge P(b)$
-  \item \textbf{Inductive Hypothesis}: For any $k geq b$, assume \textbf{$P(i)$ is true for} $i = a, \dots, b, \dots, k$
+  \item \textbf{Inductive Hypothesis}: For any $k \geq b$, assume \textbf{$P(i)$ is true for} $i = a, \dots, b, \dots, k$
   \item \textbf{Show} that $P(k+1)$ \textbf{is true}
   \item \textbf{Conclusion}: If 1 and 2 are verified, conclude that $P(n)$ is true for all $n \geq a$
 \end{enumerate}
@@ -597,6 +597,7 @@ For any non-zero integers $a$ and $b$ with $\gcd(a, b) = d$ \quad $\exists x, y$
   \item A graph is \textbf{connected} if it is possible to find a route from any vertex to any other vertex.
   \item A graph is \textbf{not connected} if, and only if, there are two vertices that are not connected by any route.
   \item \textbf{Connected components}: The sub-graphs of a graph which are connected.
+  \item A \textbf{bipartite graph} (or \textbf{bigraph}) is a graph whose vertices can be divided into two disjoint sets such that every edge connects a vertex in the first set to one in the second set. No vertices within the same set are
 \end{itemize}
 
 \subsection{Routes: Definitions}
@@ -741,7 +742,7 @@ If a graph $G$ does not have a sub-graph $H$ with these properties, \textbf{then
 \subsubsection{Dijkstra's Shortest Path Algorithm}
 \begin{itemize}
   \item Find the shortest path from a \textbf{start vertex} to \textbf{any other vertex} in a weighted graph with positive weights
-  \item \textit{Note:} Dijkstra's finds a spanning tree but this thee \textbf{may not be a minimum spanning tree}
+  \item \textit{Note:} Dijkstra's finds a spanning tree, but this tree \textbf{may not be a minimum spanning tree}
 \end{itemize}
 
 \begin{enumerate}
